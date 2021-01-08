@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TesteTecnicoCaminhao.Models.Caminhao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-success">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Ano Fabricação</th>
+            <th>Ano Modelo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoFabricacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoModelo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-sm btn-primary">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn-sm btn-warning">Detalhes</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
